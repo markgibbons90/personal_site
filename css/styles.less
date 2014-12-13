@@ -1,0 +1,874 @@
+/*
+| ===========================
+| ========= COLORS ==========
+| ===========================
+*/
+@dark-blue: lighten(#172C3C, 2%);
+@mid-blue:  lighten(#274862, 2%);
+@red:       saturate(lighten(#995052, 10%), 10%);
+@orange:    lighten(#D96831, 2%);
+@yellow:    lighten(#E6B33D, 2%);
+
+/*=============================*/
+
+/*
+| ===========================
+| ========= MIXINS ==========
+| ===========================
+*/
+/*=============================*/
+
+
+/*
+| ===========================
+| ========= STYLES ==========
+| ===========================
+*/
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+} 
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	background-color: desaturate(lighten(@red, 40%), 20%);
+}
+@media (max-width: 1440px) {
+	body {
+		font-size: 15px;
+	}
+}
+a {
+	text-decoration: none;
+	color: white;
+}
+h1, h2, h3, h4, h5 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+	text-align: center;
+}
+h1 {
+	font-size: 2.8em;
+	margin-top: 0;  //Getting rid of top margin for small screens
+}
+h2 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 1.4em;
+}
+/*
+| ========= DESKTOP SIZE ==========
+*/
+@media (min-width: 1441px) {
+	h1 {
+		font-size: 4em;
+	}
+	h2 {
+		font-size: 1.8em;
+	}
+}
+/*
+| ========= VERY SMALL MOBILE SCREENS ==========
+*/
+@media (max-width: 360px) {
+	h1 {
+		font-size: 2em;
+	}
+	h2 {
+		font-size: 1.0em;
+	}
+}
+
+p {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 1.1em;
+	color: @dark-blue;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.center-vert {
+	position: relative;
+	top: 45%;
+	width: 100%;
+}
+
+.main-container {
+	width: 80%;
+	margin: 0 auto;
+	max-width: 1400px;
+}
+@media (min-width: 1095px) {
+	.main-container {
+		min-width: 1000px;
+	}
+}
+
+
+/*================================
+| ========= Grid System ==========
+================================*/
+.col-3 {
+	padding: 10px 20px;
+}
+.title-col {
+	margin-bottom: 1.8em;
+}
+/*
+| ========= DESKTOP SIZE ==========
+*/
+@media (min-width: 1095px) {
+	.col-3 {
+		vertical-align: top;
+		display: inline-block;
+		width: 33.33333%;
+		margin-right: -4px;//to eliminate white space
+	}
+}
+
+@media (min-width: 1095px) {
+	.title-col {
+		vertical-align: top;
+		display: inline-block;
+		padding: 0 5px;
+		width: 29%;
+		margin-right: -4px;//to eliminate white space
+	}
+	.content-col {
+		vertical-align: top;
+		display: inline-block;
+		padding: 0 5px;
+		width: 70%;
+	}
+}
+
+
+
+/*===========================
+| ========= Header ==========
+===========================*/
+header {
+	z-index: 100;
+	background-color: @mid-blue;
+	color: @red;
+	padding: 10px 0 0 0;
+	width: 100%;
+	position: fixed;
+	transition: all .3s ease-in-out;
+	-webkit-transition: all .3s ease-in-out;
+	box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.5);
+	.main-container {
+		width: 100%;
+	}
+	a {
+		font-family: 'Raleway', sans-serif;
+		color: @red;
+	}
+	h1 {
+		margin: 5px 0;
+		font-size: 3.2em;
+		text-align: center;
+	}
+	h2 {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 700;
+		margin: 0 0 15px;
+		font-size: 1.5em;
+		text-align: center;
+		
+	}
+	nav {
+		background: @dark-blue;
+		width: 100%;
+		//height: 40px;
+		text-align: center;
+		cursor: default;
+		a {
+			font-size: 1.2em;
+			display: inline-block;
+			color: @red;
+			padding: 8px;
+			margin: 10px 1.5%;
+			border-radius: 4px;
+			transition: color 0.25s ease-in;
+			-webkit-transition: color 0.25s ease-in;
+		}
+		a:hover {
+			//background: darken(@dark-blue, 5%);
+			color: @yellow;
+		}
+	}
+}
+//Active class for nav links
+.active {
+	color: @yellow;
+}
+.header-small {
+	padding: 0 0 0;
+	transition: all .25s ease-in-out;
+	-webkit-transition: all .25s ease-in-out;
+	h1 {
+		margin: 0px;
+	}
+	h2 {
+		display: none;
+	}
+	nav a {
+		margin-top: 0;
+		margin-bottom:0;
+	}
+	//box-shadow: 0px 3px 4px 0px #333;
+}
+/*
+| ========= DESKTOP SIZE ==========
+*/
+@media (min-width: 1095px) {
+
+	header {
+		background-color: @mid-blue;
+		//padding: 10px 0px;
+		height: 160px;
+		.main-container {
+			width: 80%;
+		}
+		h1 {
+			//margin: 10px 0;
+			font-size: 4.0em;
+			text-align: left;
+			float: left;
+		}
+		h2 {
+			//margin: 5px 0;
+			font-size: 1.8em;
+			text-align: left;
+			float: left;
+			clear: left;
+		}
+		nav {
+			background: rgba(255,255,255,0);
+			height: 100%;
+			padding: 40px 0;
+			text-align: right;
+			cursor: default;
+			a:last-child {
+				margin-right: 0;
+			}
+			a:hover {
+
+			}
+		}
+	}
+	.header-small {
+		height: 74px;
+		width: 100%;
+		position: fixed;
+		nav {
+			padding: 18px 0;
+		}
+	}
+}
+// Buffer height of header to offset position of start page due to header being fixed
+.buffer {
+	height: 180px;
+	width: 100%;
+	background-color: @red;
+}
+@media (min-width: 1095px) {
+	.buffer {
+	height: 160px;
+	}
+}
+
+
+
+/*===============================
+| ========= Start Page ==========
+===============================*/
+
+#start-page {
+	background-color: @red;
+	text-align: center;
+	.main-container {
+		padding: 3% 0;
+	}
+	h1 {
+		font-family: 'Raleway', sans-serif;
+		font-size: 2.8em;
+		color: #fff;
+		margin: 0;
+	}
+	h2 {
+		color: #ffffff;
+		font-size: 1.4em;
+		margin: 4% 0;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 300;
+	}
+}
+/*
+| ========= DESKTOP SIZE ==========
+*/
+@media (min-width: 1441px) {
+	#start-page {
+		h1 {
+			font-size: 4em;
+		}
+		h2 {
+			font-size: 1.8em;
+			margin: 4% 8%;
+		}
+	}
+}
+
+
+/*=================================
+| ========= Start Button ==========
+=================================*/
+#start {
+	display: block;
+	font-size: 1.6em;
+	font-weight: 300;
+	color: white;
+	border: 2px solid white;
+	padding: 10px 20px;
+	background: rgba(265, 256, 256, 0);
+	border-radius: 200px;
+	transition: background .3s ease-in, color .3s ease-in;
+	-webkit-transition: background .3s ease-in, color .3s ease-in;
+	//transition: width 2s cubic-bezier(0.6, -0.6, 0.75, 0.75) 1s;
+	//-webkit-transition: width 2s cubic-bezier(0.6, -0.6, 0.75, 0.75) 1s;
+}
+#start:hover {
+	color: darken(@red, 0%);
+	background: rgba(265, 256, 256, 100%);
+}
+button:focus {
+	outline: none;
+}
+#start.clicked:hover {
+	background: rgba(265, 256, 256, 0%);
+}
+/*
+| ========= DESKTOP SIZE ==========
+*/
+@media (min-width: 1095px) {
+	#start {
+		padding: 20px 40px;
+		font-size: 2em;
+	}
+}
+/*===================================================
+| ============ Page 2 & 3 common styles =============
+===================================================*/
+#work, #cv, #about, #contact {
+	.main-container {
+		padding: 100px 0;
+	}
+	h1, h2 {
+		color: @dark-blue;
+	}
+	.row {
+		margin-top: 60px;
+	}
+}
+/*
+| ========= DESKTOP SIZE ==========
+*/
+@media (min-width: 1095px) {
+	#work, #cv, #about, #contact {
+		.row {
+			margin-top: 40px;
+		}
+	}
+}
+
+
+/*=========================================
+| ============ Page 2 - #work =============
+=========================================*/
+#work {
+	background: lighten(@mid-blue, 68%);
+	h1 + h2 {
+		margin: 2em 1em;
+	}
+	h2 a {
+		color: @dark-blue;
+		border-bottom: 1px dashed;
+	}
+	.github-logo {
+		background: url('../img/github.png');
+		background-size: 24px;
+		background-repeat: no-repeat;
+		width: 25px;
+		height: 25px;
+	}
+	.col-3 {
+		margin-bottom: 1em;
+		#sample-img-1 {
+			background: url('../img/TareshScreenShot.JPG');
+			background-size: cover;
+		}
+		#sample-img-2 {
+			background: url('../img/CSSCscreenshot.JPG');
+			background-size: cover;
+		}
+		#sample-img-3 {
+			background: url('../img/eateaseScreenshot.JPG');
+			background-size: cover;
+		}
+		p {
+			max-width: 480px;
+		}
+		.sample-img {
+			width: 250px;
+			height: 250px;
+			border-radius: 50%;
+			overflow: hidden;
+    		position: relative;
+			transition: all .3s ease-in-out;
+			-webkit-transition: all .3s ease-in-out;
+
+			.sample-caption {
+				z-index: 500;
+				transform: scale(0);
+				padding: 20px 10px;
+				text-align: center;
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				color: white;
+				background: rgba(30,30,30,0.85);
+				transition: all .3s ease-in-out;
+			    -webkit-transition: all .3s ease-in-out;
+			    h2 {
+			    	color: #ffffff;
+			    	margin-bottom: 0px;
+			    	font-size: 1.6em;
+			    }
+			    p {
+			    	color: #ffffff;
+			    	font-size: 1em;
+			    }
+			    button {
+			    	padding: 10px 20px;
+			    	border: solid 2px #ffffff;
+			    	border-radius: 2px;
+			    	background: rgba(265, 256, 256, 0);
+			    }
+			    button:hover {
+			    	background: #ffffff;
+			    	color: #000000;
+			    }
+			}
+			&:hover .sample-caption {
+				transform: scale(1);
+			}
+		}
+	}
+}
+//A little extra padding on the <p> on larger screens
+@media (min-width: 1600px) {
+	#work .col-3 > p {
+		max-width: 380px;
+	}
+}
+
+
+/*======================================
+| ============ Page 3 - CV =============
+======================================*/
+#cv {
+	background: desaturate(lighten(@mid-blue, 8%), 14%);
+	h1, h2, h3, h4, p {
+		color: white;
+	}
+	h2 {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 700;
+		margin: 10px 0;
+		font-size: 1.8em;
+		text-align: left;
+		padding-left: 40px;
+		
+	}
+	a {
+		border-bottom: 1px dashed #fff;
+	}
+	ul li {
+		padding-left: 5px;
+		font-size: 1.1em;
+		font-weight: 300;
+		color: #fff;
+		list-style-image: url(../img/icons-white/checkmark-circle.png);
+	}
+	//To stop inline anchor going yellow on scroll
+	#sample-anchor.active {
+		color: #fff;
+	}
+	#bio {
+		background: url(../img/icons/user.png);
+	}
+	#hardskills {
+		background: url(../img/icons/code.png);
+	}
+	#softskills {
+		background: url(../img/icons/cogs.png);
+	}
+	#work-exp {
+		background: url(../img/icons/user2.png);
+	}
+	#edu {
+		background: url(../img/icons/bookmark.png);
+	}
+	
+	#bio, #hardskills, #softskills, #work-exp, #edu, #interests {
+		background-size: 24px;
+		background-repeat: no-repeat;
+		background-position: 0 5px;
+	}
+	/*table {margin: 1em 0;font-family: 'Open Sans', sans-serif;font-weight: 300;font-size: 1.1em;color: white;
+		td {padding: 10px 0;}
+		td:first-child{padding-right: 10px;font-weight: 600;}
+		td:nth-child(2) {padding-left: 8px;border-left: solid 1px lighten(@dark-blue, 10%);}
+	}*/
+	.cv-th {
+		min-width: 120px;
+		h3 { 
+			text-align: left;
+			margin-bottom: 0;
+		}
+	}
+	.cv-td {
+		border-bottom: 1px solid lighten(@dark-blue, 10%);
+		p {
+			margin: 0.5em 0 1em 0;
+		}
+		h3 {
+			text-align: left;
+			margin-bottom: 0.5em;
+		}
+	}
+	.cv-row:last-child {
+		.cv-td {
+			border-bottom: 0;
+		}
+		p {
+			margin-bottom: 1em;
+		}
+	}
+}
+
+/*
+| ========= DESKTOP SIZE ==========
+*/
+@media (min-width: 1095px) {
+	#cv {
+		//background: lighten(@yellow, 15%);
+		h2 {
+			font-size: 2.1em;
+			padding-left: 50px;
+		}
+		#bio, #hardskills, #softskills, #work-exp, #edu {
+			background-size: 32px;
+			background-repeat: no-repeat;
+			background-position: 0 5px;
+		}
+		.cv-td {
+			p {
+				margin: 0
+			}
+		}
+	}
+}
+// CV 'TABLE'
+@media (min-width: 1095px) {
+	#cv {
+		.cv-row {
+			display: table-row;
+		}
+		.cv-th {
+			display: table-cell;
+			padding: 0 10px 0 0;
+		}
+		.cv-td {
+			display: table-cell;
+			padding: 0 0 0 10px;
+			border-left: 1px solid lighten(@dark-blue, 10%);
+			border-bottom: 0;
+		}
+	}
+}
+
+
+
+/*=========================================
+| ============ Page 4 - ABOUT =============
+=========================================*/
+#about {
+	/*
+	h1, h2, h3, h4, p {
+		color: white;
+	}
+	background: desaturate(lighten(@mid-blue, 10%), 15%);
+	*/
+	.profile-image {
+		width: 180px;
+		height: 180px;
+		border-radius: 150px;
+		background: url(../img/me.jpg);
+		background-size: cover;
+	}
+	
+	a {
+		color: @dark-blue;
+		border-bottom: 1px dashed @dark-blue;
+	}
+	background: lighten(@yellow, 15%);
+
+	h2 {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 700;
+		margin: 10px 0;
+		font-size: 1.8em;
+		text-align: left;
+		padding-left: 40px;
+	}
+	#interests {
+		background: url(../img/icons-grey/accessibility.png);
+	}
+	#places {
+		background: url(../img/icons-grey/location2.png);
+	}
+	#interests, #places {
+		background-size: 24px;
+		background-repeat: no-repeat;
+		background-position: 0 5px;
+	}
+	/*table {
+		margin: 1em 0;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 300;
+		font-size: 1.1em;
+		color: @dark-blue;
+		th {
+			text-align: left;
+			font-weight: 600;
+			padding-right: 20px;
+		}
+		td {
+			padding: 10px 0;
+		}
+		td:first-child{
+			padding-right: 20px;
+		}
+		td:nth-child(2) {
+			padding-left: 20px;
+			border-left: solid 1px lighten(@dark-blue, 20%);
+		}
+	}*/
+}
+/*
+| ========= GOOGLE MAP ==========
+*/
+#map-canvas {
+	width: 100%;
+	height: 400px;
+	max-width: 760px;
+	margin-top: 40px;
+}
+//STYLING THE INFOWINDOW
+.infoWindow {
+	color: #fff;
+	h3 {
+		font-size: 18px;
+		font-weight: 700;
+		color: #fff;
+		margin: 0 0 6px 0;
+	}
+}
+/*
+| ========= DESKTOP SIZE ==========
+*/
+@media (min-width: 1095px) {
+	#about {
+		h2 {
+			font-size: 2.1em;
+			padding-left: 50px;
+		}
+		#interests, #places {
+			background-size: 32px;
+			background-repeat: no-repeat;
+			background-position: 0 5px;
+		}
+	}
+}
+
+
+/*===========================================
+| ============ Page 5 - CONTACT =============
+===========================================*/
+#contact {
+	background: url(../img/typewriter.jpg);
+	background-size: cover;
+	padding: 0;
+	.overlay {
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.6)
+	}
+	h1, h2, h3, p {
+		color: #ffffff;
+	}
+	input, textarea, button {
+		padding: 10px 20px;
+		width: 100%;
+		max-width: 540px;
+		font-family: 'Open Sans', monospace;
+		font-weight: 300;
+		font-size: 1.2em;
+		border: solid 1px white;
+		border-radius: 25px;
+		background: rgba(0,0,0,0.0);
+		color: #fff;
+		margin-top: 30px;
+		&:focus {
+			background: rgba(0,0,0,0.5);
+			outline: none;
+		}
+	}
+	button {
+		margin-top: 60px;
+		margin-bottom: 60px;
+		transition: all .3s ease-in-out;
+		-webkit-transition: all .3s ease-in-out; 
+		&:hover {
+			background: rgba(255,255,255, .8);
+			color: #111111;
+		}
+	}
+	#submit-button.clicked:hover {
+	background: rgba(265, 256, 256, 0%);
+}
+	.messages-container {
+		position: relative;
+		display: none;
+		width: 100%;
+		max-width: 540px;
+	}
+	//SPAM CHECKER
+	#title {
+		display: none;
+	}
+	#form-messages {
+		padding: 12px 25px;
+		border-radius: 50px;
+		font-size: 1em;
+		width: 100%;
+		max-width: 540px;
+		text-align: center;
+		display: none;
+	}
+	#form-messages.success {
+		display: block;
+		background: desaturate(#47CC6B, 10%);
+		color: darken(desaturate(#47CC6B, 30%), 30%);
+	}
+	#form-messages.error {
+		display: block;
+		background: #D45B5B;
+		color: darken(desaturate(#D45B5B, 10%), 40%);
+	}
+	#exit-icon {
+		width: 16px;
+		height: 16px;
+		background: url(../img/icons-white/cancel-circle.png);
+		background-repeat: no-repeat;
+		position: absolute;
+		top: 10px;
+		right: 15px;
+		clear: both;
+		cursor: pointer;
+		z-index: 5000;
+	}
+}
+
+
+/*=================================
+| ============ FOOTER =============
+=================================*/
+#footer {
+	background: @red;
+	color: #fff;
+	.main-container {
+		padding: 60px 0;
+	}
+	h2 {
+		text-align: left;
+		font-size: 2.4em;
+	}
+	p {
+		color: #fff;
+		font-size: 1.3em;
+		padding-left: 40px;
+		background-repeat: no-repeat;
+		background-size: 64px;
+		a:hover {
+			color: @mid-blue;
+			transition: color 0.2s ease-in;
+			-webkit-transition: color 0.2s ease-in;
+		}
+	}
+	#email-me {
+		background: url(../img/icons-white/mail-icon.png);
+		background-repeat: no-repeat;
+	}
+	#call-me {
+		background: url(../img/icons-white/mobile.png);
+		background-repeat: no-repeat;
+	}
+	#linkedin {
+		background: url(../img/icons-white/linkedin.png);
+		background-repeat: no-repeat;
+	}
+	#github {
+		background: url(../img/github-white.png);
+		background-repeat: no-repeat;
+	}
+	#email-me, #call-me, #linkedin, #github {
+		background-repeat: no-repeat;
+		background-size: 24px;
+		background-position: 0 3px;
+	}
+}
+
+
+
+
+
+.star-rating {
+	width: 111px;
+	height: 20px 10px;
+	background: url(../img/sprites.png);
+}
+.two-half {
+	background-position: -119px -28px;
+}
+
+
+
+
+
+
+
+
+
